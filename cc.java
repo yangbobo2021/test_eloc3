@@ -27,11 +27,10 @@ public class ConstrutionEventTaskImpl implements IConstrutionEventTaskService {
                 List<VenderConstructDetailEntity> noAccepConstructDetailList = Optional.ofNullable(v).orElse(new ArrayList<>()).stream().filter(x -> x.getConstructDetailStatus() < VenderOrderDetailConst.VenderOrderDetailStatus.ALREADYACCEPT.getStatusCode()).collect(Collectors.toList());
                 if (CollectionUtils.isEmpty(noAccepConstructDetailList)) {
                     String taskBusinessSign = orderCode + "_" + k;
-                    log.info("1111111{}, status{}", taskBusinessSign, ConstructionEventTaskStatusEnum.COMPLETED.getCode());
+                    log.info("1111112221{}, status{}", taskBusinessSign, ConstructionEventTaskStatusEnum.COMPLETED.getCode());
                     updateEventTaskStatus(ConstructionEventTaskTypeEnum.JDJS.getCode(), orderCode, taskBusinessSign, ConstructionEventTaskStatusEnum.COMPLETED.getCode());
                 }
             });
-        });
     }
 
     @Override
